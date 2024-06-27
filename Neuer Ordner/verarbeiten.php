@@ -25,13 +25,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Reset Logik
     if (isset($_POST['reset'])) {
         session_unset();
-        session_destroy();
-        header('Location: button.php');
-        exit();
+        
     }
 
     // Seite neu laden, um Änderungen zu zeigen
     header('Location: button.php');
-    exit();
+    
 }
 ?>

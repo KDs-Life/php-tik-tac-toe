@@ -2,56 +2,35 @@
 session_start();
 
 // Initialisieren der Session-Variablen, wenn sie noch nicht gesetzt sind
-if (!isset($_SESSION['Schaltfläche betätigt'])) {
-    $_SESSION['Schaltfläche betätigt'] = array('00' => '', '01' => '');
-    $_SESSION['Zug'] = 1;
-    $_SESSION['button_disabled'] = array('00' => false, '01' => false);
+if (!isset($_SESSION['felder'])) {
+    $_SESSION['felder'] = ['00' => '', '01' => ''];
+    $_SESSION['zug'] = 1;
+    
 }
 
 // Prüfen, ob eine POST-Anfrage gesendet wurde
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-    if (isset($_POST['00'])) {
-        // Wenn eine Schaltfläche im Spielfeld geklickt wurde
-        $feld = '00';
+    // Spielfeld Logik
+    if (isset($_POST['feld'])) {
+        $feld = $_POST['feld'];
 
-        if ($_SESSION['Schaltfläche betätigt'][$feld] === '') {
-            if ($_SESSION['Zug'] % 2 != 0) {
-                // Ungerade Züge sind "X"
-                $_SESSION['Schaltfläche betätigt'][$feld] = 'X';
-            } else {
-                // Gerade Züge sind "O"
-                $_SESSION['Schaltfläche betätigt'][$feld] = 'O';
-            }
-            $_SESSION['Zug']++; // Erhöht den Zugzähler um 1
+        if ($_SESSION['felder'][$feld] === '') {
+            $_SESSION['felder'][$feld] = ($_SESSION['zug'] % 2 != 0) ? 'X' : 'O';
+            $_SESSION['zug']++;
+            $_SESSION['disabled'][$feld] = true;
         }
-        $_SESSION['button_disabled'][$feld] = true;
     }
 
-    if (isset($_POST['01'])) {
-        // Wenn eine Schaltfläche im Spielfeld geklickt wurde
-        $feld = '01';
-
-        if ($_SESSION['Schaltfläche betätigt'][$feld] === '') {
-            if ($_SESSION['Zug'] % 2 != 0) {
-                // Ungerade Züge sind "X"
-                $_SESSION['Schaltfläche betätigt'][$feld] = 'X';
-            } else {
-                // Gerade Züge sind "O"
-                $_SESSION['Schaltfläche betätigt'][$feld] = 'O';
-            }
-            $_SESSION['Zug']++; // Erhöht den Zugzähler um 1
-        }
-        $_SESSION['button_disabled'][$feld] = true;
-    }
-
+    // Reset Logik
     if (isset($_POST['reset'])) {
         session_unset();
+        session_destroy();
         header('Location: button.php');
         exit();
     }
 
-    // Leitet zur selben Seite weiter, um die Änderungen zu zeigen
+    // Seite neu laden, um Änderungen zu zeigen
     header('Location: button.php');
     exit();
 }

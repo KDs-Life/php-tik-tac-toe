@@ -1,22 +1,34 @@
+<?php session_start(); ?>
+
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tic Tac Toe</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
 
+<body>
 
-  
-  <h1>Tic-Tac-Toe</h1>
     <div class="container">
-      <table>
-        <?php include "gameField.php";
-        ?>
-      </table>
+        <h1>
+            Tic Tac Toe
+        </h1>
+        <!-- Spielfeld  -->
+        <form method="POST" action="verarbeiten.php">
+            <table>
+                <?php include 'gameField.php'; ?>
+            </table>
+        </form>
+
+        <!-- Reset- -->
+        <form method="POST" action="verarbeiten.php">
+            <button type="submit" name="reset" class="resetButton">Reset</button>
+        </form>
     </div>
-    <button>Restart</button>
-  </body>
+
+</body>
+
 </html>

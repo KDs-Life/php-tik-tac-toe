@@ -11,9 +11,9 @@
 
 <body>
 
-    <!-- Spielfeld Formular -->
+  
     <form method="POST" action="verarbeiten.php">
-        <!-- Schaltfläche für Feld 00 -->
+      
         <button type="submit" name="feld" value="11" 
         <?php 
         if (isset($_SESSION['button_disabled']['11']) && $_SESSION['button_disabled']['11']) {
@@ -29,7 +29,7 @@
             ?>
         </button>
 
-        <!-- Schaltfläche für Feld 01 -->
+      
         <button type="submit" name="feld" value="12" 
         <?php 
         if (isset($_SESSION['button_disabled']['12']) && $_SESSION['button_disabled']['12']) {
@@ -46,7 +46,7 @@
         </button>
     </form>
 
-    <!-- Reset-Formular -->
+  
     <form method="POST" action="verarbeiten.php">
         <button type="submit" name="reset">Reset</button>
     </form>

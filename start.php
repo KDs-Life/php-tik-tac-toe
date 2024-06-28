@@ -18,14 +18,14 @@
         <h1>
             Tic Tac Toe
         </h1>
-        <!-- Spielfeld  -->
+      
         <form method="POST" action="verarbeiten.php">
             <table>
                 <?php include 'gameField.php'; ?>
             </table>
         </form>
 
-        <!-- Reset- -->
+        
         <form method="POST" action="verarbeiten.php">
             <button type="submit" name="reset" class="resetButton">Reset</button>
         </form>

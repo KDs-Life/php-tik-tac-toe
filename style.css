@@ -1,8 +1,9 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f7f7f7;
+    font-family: 'Press Start 2P', cursive; /* Retro Pixel Font */
+    background-color: #000000;
+    color: #e6b89c;
 }
 
 h1 {
@@ -10,13 +11,13 @@ h1 {
     font-size: 36px;
     font-weight: bold;
     margin-bottom: 20px;
-    /* border: 1px solid #ddd; */
+    color: #ffad60;
 }
 
 table {
-  
-    border-spacing: 0px;
-
+    /* border-spacing: 0; */
+    border-collapse: collapse;
+    margin: 0 auto;
 }
 
 td {
@@ -24,21 +25,29 @@ td {
     height: 100px;
     text-align: center;
     font-weight: bold;
-    transition: background-color 0.3s ease;
+    background-color: #5e503f;
+    color: #e6b89c;
+    /* border: 2px solid #c4976e; */
+    transition: background-color 0.3s ease, transform 0.3s ease;
     cursor: pointer;
 }
- button {
+
+button {
     width: 100px;
     height: 100px;
-    font-size: 24px;
+    font-size: 45px;
     font-weight: bold;
-    background-color: #fff;
-    border: 2px solid #ddd;
-    transition: background-color 0.3s ease;
+    background-color: #d99a6c;
+    color: #4b2e1e;
+    border: 2px solid #c4976e;
+    transition: background-color 0.3s ease, transform 0.3s ease;
     cursor: pointer;
 }
-td:hover {
-    background-color: #777676;
+
+td:hover, button:hover {
+    background-color: #ffcc99;
+    color: #2b2b2b;
+    transform: scale(1.05);
 }
 
 .container {
@@ -47,18 +56,30 @@ td:hover {
     align-items: center;
     flex-direction: column;
     height: 100vh;
+    background-image: url('');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 form {
     margin-bottom: 20px;
 }
+
 .resetButton {
     width: 100px;
     height: 40px;
-    font-size: 16px;
+    font-size: 20px;
     font-weight: bold;
-    background-color: #fff;
-    border: 2px solid #ddd;
-    transition: background-color 0.3s ease;
+    background-color: #d99a6c;
+    color: #4b2e1e;
+    border: 2px solid #c4976e;
+    transition: background-color 0.3s ease, transform 0.3s ease;
     cursor: pointer;
+}
+
+.resetButton:hover {
+    background-color: #ffcc99;
+    color: #2b2b2b;
+    transform: scale(1.05);
 }
